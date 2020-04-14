@@ -82,16 +82,12 @@ def get_options():
                       action='store_true', default=False,
                       help='Report degrees in Farenheit')
     parser.add_option('-c', '--city', dest='city',
-                      action='store', help='Your city')
+                      action='store', help='Your city', default=get_city())
     parser.add_option('-s', '--short', dest='short',
                       action='store_true', default=False,
                       help='Short report (without city name)')
 
     options = parser.parse_args()[0]
-
-    if not options.city:
-        options.city = get_city()                  
-
     return options
 
 def get_city():
